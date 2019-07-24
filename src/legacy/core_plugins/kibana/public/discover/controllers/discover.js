@@ -72,6 +72,9 @@ import { buildVislibDimensions } from 'ui/visualize/loader/pipeline_helpers/buil
 import 'ui/capabilities/route_setup';
 import { addHelpMenuToAppChrome } from '../components/help_menu/help_menu_util';
 
+import { data } from 'plugins/data/setup';
+data.search.loadLegacyDirectives();
+
 const fetchStatuses = {
   UNINITIALIZED: 'uninitialized',
   LOADING: 'loading',
@@ -79,6 +82,7 @@ const fetchStatuses = {
 };
 
 const app = uiModules.get('apps/discover', [
+  'kibana/notify',
   'kibana/courier',
   'kibana/url',
   'kibana/index_patterns'
